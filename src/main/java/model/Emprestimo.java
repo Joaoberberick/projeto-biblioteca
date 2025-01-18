@@ -7,12 +7,14 @@ public class Emprestimo {
     private Usuario usuario;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
+    private Boolean ativo;
 
-    public Emprestimo(Livro livro, Usuario usuario, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
+    public Emprestimo(Livro livro, Usuario usuario, LocalDate dataEmprestimo, LocalDate dataDevolucao, Boolean ativo) {
         this.livro = livro;
         this.usuario = usuario;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
+        this.ativo = ativo;
     }
 
     public Livro getLivro() {
@@ -31,13 +33,21 @@ public class Emprestimo {
         return dataDevolucao;
     }
 
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
     @Override
     public String toString() {
-        return "Emprestimo{" +
-                "livro=" + livro +
-                ", usuario=" + usuario +
-                ", dataEmprestimo=" + dataEmprestimo +
-                ", dataDevolucao=" + dataDevolucao +
-                '}';
+        return "Emprestimo: \n" +
+                "livro: " + livro +
+                "\nusuario: " + usuario +
+                "\ndata de emprestimo: " + dataEmprestimo +
+                "\ndata de devolucao: " + dataDevolucao +
+                "\nativo: " + ativo;
     }
 }
