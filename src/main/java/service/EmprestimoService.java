@@ -33,4 +33,9 @@ public class EmprestimoService {
     public Emprestimo buscarEmprestimoPorIsbn(String isbn) {
         return emprestimoRepository.buscarEmprestimo(isbn);
     }
+
+    public void devolverEmprestimo(Emprestimo emprestimo) {
+        emprestimo.getLivro().setDisponivel(true);
+        emprestimo.setAtivo(false);
+    }
 }

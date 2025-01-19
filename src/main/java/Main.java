@@ -48,6 +48,9 @@ public class Main {
             System.out.println("4 - Adicionar Usuário");
             System.out.println("5 - Remover Usuário");
             System.out.println("6 - Listar Usuários");
+            System.out.println("7 - Registrar Empréstimo");
+            System.out.println("8 - Listar Empréstimos");
+            System.out.println("9 - Devolução de Empréstimo");
             System.out.println("0 - Sair");
             System.out.print("Digite a opção: ");
 
@@ -77,6 +80,18 @@ public class Main {
 
                     case "6": // Listar Usuários
                         usuarioController.listarTodosUsuarios();
+                        break;
+
+                    case "7": // Registrar Empréstimo
+                        emprestimoController.processarNovoEmprestimo(livroRepository, usuarioRepository);
+                        break;
+
+                    case "8": // Listar Empréstimos
+                        emprestimoController.listarTodosEmprestimos();
+                        break;
+
+                    case "9": // Devolução de Empréstimo
+                        emprestimoController.processarDevolucao();
                         break;
 
                     case "0": // Sair

@@ -43,4 +43,25 @@ public class EmprestimoController {
     public void listarTodosEmprestimos() {
         emprestimoService.listarTodos().forEach(System.out::println);
     }
+
+    
+    public void processarDevolucao() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("ISBN do livro: ");
+        String isbn = scanner.nextLine();
+        Emprestimo emprestimo = emprestimoService.buscarEmprestimoPorIsbn(isbn);
+        if (emprestimo == null) {
+            System.out.println("Empréstimo não encontrado para o ISBN: " + isbn);
+        } else {
+            System.out.println("Empréstimo encontrado: " + emprestimo);
+            System.out.print("Deseja devolver este empréstimo? (s/n): ");
+            String confirmacao = scanner.nextLine();
+            if (confirmacao.equalsIgnoreCase("s")) {
+                emprestimoService.devolverEmprestimo(emprestimo);
+                System.out.println("Empréstimo devolvido com sucesso!");
+            } else {
+                System.out.println("Devolução cancelada.");
+            }
+        }
+    }
 }
