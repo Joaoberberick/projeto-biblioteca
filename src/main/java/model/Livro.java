@@ -1,24 +1,19 @@
 package model;
 
-public class Livro {
+public class Livro extends EntidadeBase {
     private String isbn;
-    private String titulo;
     private String autor;
     private boolean disponivel;
 
-    public Livro(String isbn, String titulo, String autor, boolean disponivel) {
+    public Livro(String id, String nome, String isbn, String autor) {
+        super(id, nome);
         this.isbn = isbn;
-        this.titulo = titulo;
         this.autor = autor;
-        this.disponivel = disponivel;
+        this.disponivel = true;
     }
 
     public String getIsbn() {
         return isbn;
-    }
-
-    public String getTitulo() {
-        return titulo;
     }
 
     public String getAutor() {
@@ -36,8 +31,9 @@ public class Livro {
     @Override
     public String toString() {
         return "Livro{" +
-                "isbn='" + isbn + '\'' +
-                ", titulo='" + titulo + '\'' +
+                "id='" + getId() + '\'' +
+                ", nome='" + getNome() + '\'' +
+                ", isbn='" + isbn + '\'' +
                 ", autor='" + autor + '\'' +
                 ", disponivel=" + disponivel +
                 '}';

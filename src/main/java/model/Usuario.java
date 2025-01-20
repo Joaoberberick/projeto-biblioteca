@@ -1,22 +1,11 @@
 package model;
 
-public class Usuario {
-    private String id;
-    private String nome;
+public class Usuario extends EntidadeBase {
     private String email;
 
     public Usuario(String id, String nome, String email) {
-        this.id = id;
-        this.nome = nome;
+        super(id, nome);
         this.email = email;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
     }
 
     public String getEmail() {
@@ -26,8 +15,8 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "id='" + id + '\'' +
-                ", nome='" + nome + '\'' +
+                "id='" + getId() + '\'' +
+                ", nome='" + getNome() + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

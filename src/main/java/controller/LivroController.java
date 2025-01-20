@@ -16,21 +16,23 @@ public class LivroController {
 
     public void processarNovoLivro(){
         Scanner scanner = new Scanner(System.in);
+        System.out.print("ID do livro: ");
+        String livroID = scanner.nextLine();
         System.out.print("ISBN: ");
         String isbn = scanner.nextLine();
         System.out.print("Título: ");
         String titulo = scanner.nextLine();
         System.out.print("Autor: ");
         String autor = scanner.nextLine();
-        adicionarLivro(isbn, titulo, autor, true);
+        adicionarLivro(livroID, isbn, titulo, autor);
         System.out.println("Livro adicionado com sucesso!");
     }
 
-    public void adicionarLivro(String isbn, String titulo, String autor, boolean disponivel) {
+    public void adicionarLivro(String id, String titulo, String isbn, String autor) {
         if (livroService.existeIsbn(isbn)) {
             throw new RuntimeException("Já existe um livro com o ISBN informado: " + isbn);
         }
-        Livro livro = new Livro(isbn, titulo, autor, disponivel);
+        Livro livro = new Livro(id, isbn, titulo, autor);
         livroService.adicionarLivro(livro);
     }
 

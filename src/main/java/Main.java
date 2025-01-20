@@ -1,16 +1,7 @@
-import controller.LivroController;
-import controller.UsuarioController;
-import controller.EmprestimoController;
-import model.Livro;
-import model.Usuario;
-import repository.LivroRepository;
-import repository.UsuarioRepository;
-import repository.EmprestimoRepository;
-import service.LivroService;
-import service.UsuarioService;
-import service.EmprestimoService;
+import controller.*;
+import repository.*;
+import service.*;
 
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
@@ -28,10 +19,10 @@ public class Main {
         UsuarioController usuarioController = new UsuarioController(usuarioService);
         EmprestimoController emprestimoController = new EmprestimoController(emprestimoService);
 
-        livroController.adicionarLivro("6555521589", "A Odisseia", "Homero", true);
-        livroController.adicionarLivro("6555521635", "Iliada", "Homero", true);
-        livroController.adicionarLivro("854400119X", "Fausto", "Goethe", true);
-        livroController.adicionarLivro("6580210621", "Dom Quixote", "Cervantes", true);
+        livroController.adicionarLivro("1","6555521589", "A Odisseia", "Homero");
+        livroController.adicionarLivro("2","6555521635", "Iliada", "Homero");
+        livroController.adicionarLivro("3","854400119X", "Fausto", "Goethe");
+        livroController.adicionarLivro("4","6580210621", "Dom Quixote", "Cervantes");
 
         usuarioController.adicionarUsuario("1", "Joao", "teste@teste");
 
